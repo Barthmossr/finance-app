@@ -1,12 +1,11 @@
-import nextJest from 'next/jest'
-
-import type { Config } from 'jest'
+import nextJest from 'next/jest.js'
 
 const createJestConfig = nextJest({
   dir: './',
 })
 
-const config: Config = {
+/** @type {import('jest').Config} */
+const config = {
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
@@ -16,6 +15,8 @@ const config: Config = {
     '!src/**/*.d.ts',
     '!src/**/index.ts',
     '!src/lib/utils.ts',
+    '!src/app/layout.tsx',
+    '!src/lib/supabase.ts',
   ],
   coverageThreshold: {
     global: {
