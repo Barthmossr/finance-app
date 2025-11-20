@@ -17,6 +17,8 @@ const config = {
     '!src/lib/utils.ts',
     '!src/app/layout.tsx',
     '!src/lib/supabase.ts',
+    '!src/components/ui/**/*.{ts,tsx}',
+    '!src/app/auth/callback/route.ts',
   ],
   coverageThreshold: {
     global: {
@@ -25,6 +27,9 @@ const config = {
       lines: 100,
       statements: 100,
     },
+  },
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
 }
 

@@ -13,3 +13,22 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: jest.fn(),
   })),
 })
+
+class ResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+
+window.ResizeObserver = ResizeObserver
+
+class PointerEvent extends Event {
+  constructor(type: string, props: PointerEventInit) {
+    super(type, props)
+  }
+}
+
+window.PointerEvent = PointerEvent as unknown as typeof window.PointerEvent
+window.HTMLElement.prototype.scrollIntoView = jest.fn()
+window.HTMLElement.prototype.releasePointerCapture = jest.fn()
+window.HTMLElement.prototype.hasPointerCapture = jest.fn()
