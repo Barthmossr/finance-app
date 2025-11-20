@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import { AuthProvider } from '@/components/auth-provider'
 import { ThemeProvider } from '@/components/theme-provider'
 
 import './globals.css'
@@ -26,7 +27,7 @@ function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>
       </body>
     </html>
@@ -34,4 +35,4 @@ function RootLayout({
 }
 
 export { metadata }
-export default RootLayout
+export { RootLayout as default }
